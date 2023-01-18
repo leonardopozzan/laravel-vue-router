@@ -1,6 +1,11 @@
 <template>
     <section>
-        <div class="my-card py-5" v-if="project">
+        <div class="text-center py-3">
+            <div class="btn btn-primary" v-if="!project && !show">Loading....</div>
+            <button class="btn btn-primary" v-else-if="project && !show" @click="show = !show">Mostra il progetto</button>
+            <button class="btn btn-primary" v-else  @click="show = !show">Torna al gioco</button>
+        </div>
+        <div class="my-card py-5" v-if="show">
             <div class="img-box">
                 <img  v-if="project.image" :src="`${store.imagePath}${project.image}`" alt="">
                 <img v-else src="https://picsum.photos/id/20/1920/1080" alt="">
@@ -14,7 +19,8 @@
             <div>{{ project.description }}</div>
         </div>
         <div v-else>
-            <h3 class="text-center" >Loading...</h3>
+            <h3 class="text-center">Gioca finchè aspetti l'api</h3>
+            <GameComponent></GameComponent>
         </div>
     </section>
 </template>
@@ -22,11 +28,14 @@
 <script>
 import axios from 'axios';  
 import {store} from '../store'
+import GameComponent from '../components/GameComponent.vue'
     export default {
+        components: {GameComponent},
         data(){
             return{
                 store,
-                project : null
+                project : null,
+                show: false
             }
         },
         methods:{
@@ -41,7 +50,7 @@ import {store} from '../store'
             }
         },
         mounted(){
-            setTimeout(this.getPorject,2000);
+            setTimeout(this.getPorject,4000);
         }
     }
 </script>
