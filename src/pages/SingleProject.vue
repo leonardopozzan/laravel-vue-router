@@ -1,14 +1,22 @@
 <template>
-    <div class="my-card" v-if="project">
-        <div class="img-box">
-            <img  v-if="project.image" :src="`${store.imagePath}${project.image}`" alt="">
-            <img v-else src="https://picsum.photos/id/20/1920/1080" alt="">
+    <section>
+        <div class="my-card py-5" v-if="project">
+            <div class="img-box">
+                <img  v-if="project.image" :src="`${store.imagePath}${project.image}`" alt="">
+                <img v-else src="https://picsum.photos/id/20/1920/1080" alt="">
+            </div>
+            <div>{{ project.name }}</div>
+            <div>{{ project.type.workflow }}</div>
+            <div>{{ project.framework }}</div>
+            <div>{{ project.diff_lvl }}</div>
+            <div>{{ project.team }}</div>
+            <div>{{ project.git_link }}</div>
+            <div>{{ project.description }}</div>
         </div>
-        <router-link :to="{name : 'single-project', params:{slug: project.slug}}">{{project.name}}</router-link>
-        <div>{{ project.type.workflow }}</div>
-        <div>{{ project.diff_lvl }}</div>
-    </div>
-    <div v-else>Loading...</div>
+        <div v-else>
+            <h3 class="text-center" >Loading...</h3>
+        </div>
+    </section>
 </template>
 
 <script>
@@ -33,7 +41,7 @@ import {store} from '../store'
             }
         },
         mounted(){
-            this.getPorject();
+            setTimeout(this.getPorject,2000);
         }
     }
 </script>
@@ -41,7 +49,7 @@ import {store} from '../store'
 <style lang="scss" scoped>
 .my-card{
         width: calc(100% / 4 - 20px);
-        margin: 20px 10px;
+        // margin: 20px 10px;
         .img-box{
 
         }
