@@ -18,7 +18,7 @@
             <div>{{ project.git_link }}</div>
             <div>{{ project.description }}</div>
         </div>
-        <div v-else>
+        <div v-show="!show">
             <h3 class="text-center">Gioca finchè aspetti l'api</h3>
             <GameComponent></GameComponent>
         </div>
@@ -50,7 +50,7 @@ import GameComponent from '../components/GameComponent.vue'
             }
         },
         mounted(){
-            setTimeout(this.getPorject,4000);
+            setTimeout(this.getPorject,3000);
         }
     }
 </script>

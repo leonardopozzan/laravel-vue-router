@@ -277,6 +277,7 @@
         this.getListBombs();
         this.buildMinesweeper();
         this.placeCounter();
+
       }
     }
   </script>
