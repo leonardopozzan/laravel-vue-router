@@ -1,5 +1,5 @@
 <template>
-    <div class="my-card" v-if="project">
+    <div class="my-card">
         <div class="img-box">
             <img  v-if="project.image" :src="`${store.imagePath}${project.image}`" alt="">
             <img v-else src="https://picsum.photos/id/20/1920/1080" alt="">
@@ -8,33 +8,17 @@
         <div>{{ project.type.workflow }}</div>
         <div>{{ project.diff_lvl }}</div>
     </div>
-    <div v-else>Loading...</div>
 </template>
 
 <script>
-import axios from 'axios';  
-import {store} from '../store'
+import {store} from '../store';
     export default {
         data(){
             return{
-                store,
-                project : null
+                store
             }
         },
-        methods:{
-            getPorject(){
-                axios.get(`${store.apiUrl}/projects/${this.$route.params.slug}`).then((response)=>{
-                    if(response.data.success){
-                        this.project = response.data.results;
-                    } else {
-                        this.$router.push({name: 'not-found'});
-                    }
-                });
-            }
-        },
-        mounted(){
-            this.getPorject();
-        }
+        props:{project : Object}
     }
 </script>
 
