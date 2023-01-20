@@ -25,7 +25,7 @@ const router = createRouter({
             component: SingleProject
         },
         {
-            path:'/*',
+            path: '/:pathMatch(.*)*',
             name: 'not-found',
             component: NotFound
         },

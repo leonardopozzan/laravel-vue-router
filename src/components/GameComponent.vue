@@ -238,6 +238,7 @@
                   if(arraySquares[i].classList.contains('bomb')){
                       arraySquares[i].classList.add('bomb-exploded');
                   }else{
+                    arraySquares[i].classList.remove('flag');
                       arraySquares[i].classList.add('show');
                   }
               }
