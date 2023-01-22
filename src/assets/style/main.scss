@@ -5,12 +5,14 @@ $fa-font-path : "./webfonts";
 @import '@fortawesome/fontawesome-free/scss/regular.scss';
 @import '@fortawesome/fontawesome-free/scss/solid.scss';
 @import 'bootstrap/scss/bootstrap.scss';
+@import url('https://fonts.googleapis.com/css2?family=Bowlby+One+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap');
 
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 ul{
     list-style: none;

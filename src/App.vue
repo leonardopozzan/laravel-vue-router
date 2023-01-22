@@ -3,7 +3,7 @@
     <AppHeader></AppHeader>
   </header>
   <main>
-    <div class="my-container">
+    <div class="container">
       <router-view></router-view>
     </div>
   </main>
@@ -20,11 +20,10 @@ import AppHeader from './components/HeaderComponent.vue';
 </script>
 
 <style lang="scss" scoped>
-.my-container{
-  width: 80%;
-  margin: auto;
-}
+@use './assets/style/variables' as *;
+
 main{
-  background-color: rgb(239, 239, 239);
+  background-color: $background-grey;
+  min-height: calc(100vh - 100px);
 }
 </style>

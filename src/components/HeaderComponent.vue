@@ -2,7 +2,7 @@
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#"><img src="/img/logo3.png" alt="" id="logo"></a>
+                <a class="navbar-brand" href="#"><img src="/img/logo.png" alt="" id="logo"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -40,7 +40,13 @@
 </script>
 
 <style lang="scss" scoped>
+@use '../assets/style/variables' as *;
 nav{
+    
+    height: 100px;
+    background-color: $background-grey;
+    background: rgb(149,149,149);
+    background: linear-gradient(0deg, rgba(149,149,149,1) 0%, rgba(142,143,148,1) 2%, rgba(255,255,255,1) 73%, rgba(255,255,255,1) 100%);
     #logo{
         width: 75px;
     }
